@@ -84,11 +84,14 @@ ChatBot &ChatBot::operator=(ChatBot &&source)
         return *this;
     delete _image;
     _image = source._image;
-    source._image = NULL;
-
     _currentNode = source._currentNode;
     _rootNode = source._rootNode;
     _chatLogic = source._chatLogic;
+
+    source._image = NULL;
+    source._currentNode = NULL;
+    source._rootNode = NULL;
+    source._chatLogic = NULL;
 
     return *this;
 }
