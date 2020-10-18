@@ -11,14 +11,14 @@
 #include "chatbot.h"
 #include "chatlogic.h"
 
+
 ChatLogic::ChatLogic()
 {
     //// STUDENT CODE
     ////
 
     // create instance of chatbot
-    //std::shared_ptr<ChatBot>
-    _chatBot.reset(new ChatBot("../images/chatbot.png"));
+    _chatBot = new ChatBot("../images/chatbot.png");
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
@@ -33,7 +33,7 @@ ChatLogic::~ChatLogic()
     ////
 
     // delete chatbot instance
-    //delete _chatBot;
+    delete _chatBot;
 
     ////
     //// EOF STUDENT CODE
@@ -227,7 +227,7 @@ void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
 
 void ChatLogic::SetChatbotHandle(ChatBot *chatbot)
 {
-    _chatBot.reset(new ChatBot(std::move(*chatbot)));
+    _chatBot = chatbot;
 }
 
 void ChatLogic::SendMessageToChatbot(std::string message)
