@@ -187,8 +187,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
 
 
-
-    delete _chatBot;
     ChatBot _chatbotlocal("../images/chatbot.png");
     _chatbotlocal.SetChatLogicHandle(this);
     _chatbotlocal.SetRootNode(rootNode);
